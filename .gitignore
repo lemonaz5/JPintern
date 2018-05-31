@@ -1,0 +1,9 @@
+*.txt
+tweet_crawl_template.py
+main_crawler.py
+.*
+!.gitignore
+translated_tweet
+*.jpg
+*.png
+*.pdf
