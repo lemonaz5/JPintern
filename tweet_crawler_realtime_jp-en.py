@@ -19,7 +19,7 @@ api = tweepy.API(auth)
 #query1 = 'こんにちわ'
 #query = ["Bangkok"]
 label = "BKK_th-en" 
-languages = ["en", "th"]
+languages = ["en", "jp"]
 longlat = [135.685300,34.931461,135.785300,35.031461] 
 # ------- EDIT -------- #
 tweet_list=set()
