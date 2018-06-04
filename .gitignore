@@ -4,7 +4,9 @@ main_crawler.py
 .*
 !.gitignore
 translated_tweet
+miya_kyoto_tweet
 *.jpg
 *.png
 *.pdf
 tweet_location/
+test_data/
