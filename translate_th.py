@@ -29,4 +29,4 @@ df_bkk = open_to_pandas("\BKK_th-en_tweets.txt")
 
 df_bkk['place'] = df_bkk['place'].apply(lambda x: translate(x,'en'))
 df_bkk['text'] = df_bkk['text'].apply(lambda x: translate(x,'en'))
-save_obj('translated_bkk_tweet', df_bkk)
+save_obj(path + '\translated_bkk_tweet', df_bkk)

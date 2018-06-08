@@ -2,15 +2,16 @@ import pandas as pd
 from mtranslate import translate
 import pickle
 
-path = r'C:\Users\sociocom\Desktop\Crawler\backup\31May-4June 2018'
+#path = r'C:\Users\sociocom\Desktop\Crawler\backup\31May-4June 2018'
+path = r"/home/wannita/crawler/backup/31May-4June 2018"
 
 def save_obj(file, obj):
     with open(file, 'wb') as f:
         pickle.dump(obj, f)
 
-def load_obj(file):
+def load_obj(file, obj):
     with open(file, 'rb') as f:
-        return pickle.load(f)
+        obj = pickle.load(f)
 
 def open_to_pandas(spath):
     tweets = open(path + spath, "r", encoding="utf-8")
@@ -25,9 +26,9 @@ def open_to_pandas(spath):
     print("all data :" ,len(name), "tweets")
     return name
 
-df_spl = open_to_pandas("/SPL_pt-en_tweets.txt")
+df_ham = open_to_pandas("/HAM_de-en_tweets.txt")
 
-df_spl['place'] = df_spl['place'].apply(lambda x: translate(x,'en'))
-df_spl['text'] = df_spl['text'].apply(lambda x: translate(x,'en'))
-save_obj(path + '/translated_spl_tweet', df_spl)
+df_ham['place'] = df_ham['place'].apply(lambda x: translate(x,'en'))
+df_ham['text'] = df_ham['text'].apply(lambda x: translate(x,'en'))
+save_obj('translated_ham_tweet', df_ham)
 #path = r"/home/wannita/crawler/backup/31May-4June 2018"

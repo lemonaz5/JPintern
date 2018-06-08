@@ -2,7 +2,8 @@ import pandas as pd
 from mtranslate import translate
 import pickle
 
-path = r'C:\Users\sociocom\Desktop\Crawler\backup\31May-4June 2018'
+#path = r'C:\Users\sociocom\Desktop\Crawler\backup\31May-4June 2018'
+path = r"/home/wannita/crawler/backup/31May-4June 2018"
 
 def save_obj(file, obj):
     with open(file, 'wb') as f:
@@ -25,9 +26,5 @@ def open_to_pandas(spath):
     print("all data :" ,len(name), "tweets")
     return name
 
-df_spl = open_to_pandas("/SPL_pt-en_tweets.txt")
-
-df_spl['place'] = df_spl['place'].apply(lambda x: translate(x,'en'))
-df_spl['text'] = df_spl['text'].apply(lambda x: translate(x,'en'))
-save_obj(path + '/translated_spl_tweet', df_spl)
-#path = r"/home/wannita/crawler/backup/31May-4June 2018"
+df_sfc = open_to_pandas("/SFC_en_tweets.txt")
+save_obj(path + '/translated_sfc_tweet', df_sfc)

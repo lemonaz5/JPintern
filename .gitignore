@@ -8,6 +8,7 @@ miya_kyoto_tweet
 *.jpg
 *.png
 *.pdf
+*.html
 tweet_location/
 test_data/
 backup/
