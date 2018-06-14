@@ -9,6 +9,5 @@ miya_kyoto_tweet
 *.png
 *.pdf
 *.html
-tweet_location/
-test_data/
-backup/
+*.docx
+*/

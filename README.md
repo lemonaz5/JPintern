@@ -23,3 +23,7 @@ San francisco: 864,816 (2015)/ 121.4 km²
 Sao Paulo: 12.11 million (2017)/ 1,521 km²
 
 -46.683309,-23.600520 ~ -46.583309,-23.500520
+
+acl emnlp naacl
+
+www kdd wsdm arXiv
