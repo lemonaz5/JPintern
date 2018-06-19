@@ -6,6 +6,7 @@ import json
 import datetime
 import re
 import os
+from mtranslate import translate
 
 CONSUMER_KEY = 'DvgGYj5LHwUc3dc2JKGdfETfc'
 CONSUMER_SECRET = 'qJYyFfJ6YdnbXHLp4E1as7AiVezdjRd2oNq0KiZ9W4OFJbeDof'
@@ -33,6 +34,7 @@ def writefile(tweet):
         tweet_user = tweet.user.screen_name
         tweet_text = str(tweet.text).encode("utf_8", "ignore").decode("utf_8")
         tweet_text = tweet_text.replace('\n', ' ')
+        tweet_text_trans = translate(tweet_text, 'en')
         tweet_time = str(tweet.created_at).encode("utf_8", "ignore").decode("utf_8")
         tweet_lang = str(tweet.lang).encode("utf_8", "ignore").decode("utf_8")
         tweet_reply_id = tweet.in_reply_to_status_id_str if tweet.in_reply_to_status_id_str != None else '-1'
@@ -54,11 +56,12 @@ def writefile(tweet):
             latitude = latlong[1]
         if tweet.place != None:
             location = str(tweet.place.name).encode("utf_8", "ignore").decode("utf_8")
+            location_trans = translate(location, 'en')
             locat_sw = str(tweet.place.bounding_box.coordinates[0][0])[1:-1].encode("utf_8", "ignore").decode("utf_8")
             locat_ne = str(tweet.place.bounding_box.coordinates[0][2])[1:-1].encode("utf_8", "ignore").decode("utf_8")
 
         #tweet_with_time_and_geo = tweet_user_id + "\t" + tweet_user + "\t" + tweet_id + "\t" + tweet_text + "\t" + tweet_time + "\t" + latitude + "\t" + longitude + "\t" + location + "\t" + locat_sw + "\t" + locat_ne + "\t" + tweet_lang + "\n"
-        tweet_with_time_and_geo = tweet_user_id + "\t" + tweet_user + "\t" + tweet_id + "\t" + tweet_text + "\t" + tweet_time + "\t" + latitude + "\t" + longitude + "\t" + location + "\t" + locat_sw + "\t" + locat_ne + "\t" + tweet_reply_id + "\t" + tweet_reply_user_id + "\t" + tweet_reply_username + "\t" + tweet_lang + "\n"
+        tweet_with_time_and_geo = tweet_user_id + "\t" + tweet_user + "\t" + tweet_id + "\t" + tweet_text + "\t" + tweet_text_trans + "\t" + tweet_time + "\t" + latitude + "\t" + longitude + "\t" + location+ "\t" + location_trans + "\t" + locat_sw + "\t" + locat_ne + "\t" + tweet_reply_id + "\t" + tweet_reply_user_id + "\t" + tweet_reply_username + "\t" + tweet_lang + "\n"
 
         f.write(tweet_with_time_and_geo.encode("utf_8", "ignore").decode("utf_8"))
     f.close()
