@@ -2,8 +2,8 @@ import pandas as pd
 from mtranslate import translate
 import pickle
 
-#path = r'C:\Users\sociocom\Desktop\Crawler\backup\31May-4June 2018'
-path = r"/home/wannita/crawler/backup/14-15June2018"
+path = r'C:\Users\sociocom\Desktop\Crawler\backup\playing'
+#path = r"/home/wannita/crawler/backup/playing"
 
 def save_obj(file, obj):
     with open(file, 'wb') as f:
@@ -51,6 +51,6 @@ elif out_name == "2":
     out_name = "translated_ham_tweet"
 elif out_name == "1":
     out_name = "translated_sfc_tweet"
-df_bkk = open_to_pandas(name)
+df_bkk = open_to_pandas(path + "\\" + name)
 
-save_obj(out_name, df_bkk)
+save_obj(path + "\\" + out_name, df_bkk)
